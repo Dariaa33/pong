@@ -10,6 +10,8 @@ public class PopUp : MonoBehaviour
     GameObject popup;
     [SerializeField]
     float timeAnim;
+    
+    
 
     private void Start()
     {
@@ -60,4 +62,6 @@ public class PopUp : MonoBehaviour
         
         
     }
+
+    
 }
