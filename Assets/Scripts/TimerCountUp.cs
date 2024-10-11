@@ -5,29 +5,26 @@ using TMPro;
 
 public class TimerCountUp : MonoBehaviour
 {
-    [SerializeField]
-    GameObject objetoTexto;
-    [SerializeField]
-    TextMeshProUGUI etiquetaTexto;
-    int startTime = 0;
-    float currentTime;
-    [SerializeField]
-    public TextMeshProUGUI timerText;
-    public void AumentarCuenta()
-    {
-        currentTime = ;
-        etiquetaTexto.text = currentTime.ToString();
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	private float StartTime;
+	TextMeshProUGUI etiquetaTexto;
+	
+	void Start()
+	{
+		StartTime = Time.time;
+	}
+	void Update()
+	{
+		float TimerControl = Time.time - StartTime;
+		string mins = ((int)TimerControl / 60).ToString("00");
+		string segs = (TimerControl % 60).ToString("00");
+		string milisegs = ((TimerControl * 100) % 100).ToString("00");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+		string TimerString = string.Format("{00}:{01}:{02}", mins, segs, milisegs);
+
+		etiquetaTexto.text = StartTime.ToString();
+
+	}
+
+
+    
 }
